@@ -1,5 +1,5 @@
 .PHONY: all test clean
-CFLAGS=-O2
+CFLAGS=-O2 -Wall
 LDFLAGS=-lnettle
 LN=ln -f
 MKDIR=mkdir
