@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <fcntl.h>
 #include <error.h>
@@ -10,7 +11,7 @@
 
 #define BUFLEN 256
 
-char buf[BUFLEN];
+uint8_t buf[BUFLEN];
 
 #define mkdigest(name, sha3_size, sha3_ctx, sha3_init, sha3_update, sha3_digest) \
   uint8_t* name(int fd) { \
