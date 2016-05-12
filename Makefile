@@ -4,7 +4,6 @@ LDFLAGS=-lnettle
 LN=ln -f
 MKDIR=mkdir
 DIFF=diff
-RMDIR=rmdir
 
 all: sha3-224sum sha3-256sum sha3-384sum sha3-512sum
 
@@ -23,5 +22,4 @@ test-actual/%: % test-actual
 test: test-actual/sha3-224sum test-actual/sha3-256sum test-actual/sha3-384sum test-actual/sha3-512sum
 
 clean:
-	$(RM) sha3-224sum sha3-256sum sha3-384sum sha3-512sum test-actual/sha3-224sum test-actual/sha3-256sum test-actual/sha3-384sum test-actual/sha3-512sum
-	$(RMDIR) test-actual
+	$(RM) -r sha3-224sum sha3-256sum sha3-384sum sha3-512sum test-actual
