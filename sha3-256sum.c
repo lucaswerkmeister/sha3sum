@@ -25,10 +25,13 @@ char buf[BUFLEN];
     return digest; \
   }
 
-mkdigest(digest_224, 28, sha3_224_ctx, sha3_224_init, sha3_224_update, sha3_224_digest)
-mkdigest(digest_256, 32, sha3_256_ctx, sha3_256_init, sha3_256_update, sha3_256_digest)
-mkdigest(digest_384, 48, sha3_384_ctx, sha3_384_init, sha3_384_update, sha3_384_digest)
-mkdigest(digest_512, 64, sha3_512_ctx, sha3_512_init, sha3_512_update, sha3_512_digest)
+#define mkdigest_(size, length) \
+  mkdigest(digest_ ## size, length, sha3_ ## size ## _ctx, sha3_ ## size ## _init, sha3_ ## size ## _update, sha3_ ## size ## _digest)
+
+mkdigest_(224, 28)
+mkdigest_(256, 32)
+mkdigest_(384, 48)
+mkdigest_(512, 64)
 
 void printhex(size_t len, uint8_t *buf) {
   for (size_t i = 0; i < len; i++) {
